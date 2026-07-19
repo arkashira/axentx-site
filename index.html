@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Axentx — autonomous infrastructure agents</title>
-<meta name="description" content="Axentx is a deep-tech company building autonomous agents that run cloud operations inside regulated and air-gapped environments. Sentinel operates on a decision-tier authority model. Built in Thailand.">
+<title>Axentx — sovereign AI for regulated engineering</title>
+<meta name="description" content="Axentx builds Surrogate, an engineering agent that runs a specialized model inside your own environment. Your code and telemetry never leave your perimeter. Built in Thailand.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0A0B0D; --ink-2:#141619; --paper:#F3F0E8; --paper-2:#EAE6DB;
-    --indigo:#1E2A52; --indigo-lt:#2E3D6E; --amber:#D98A34; --teal:#1F8A82;
+    --indigo:#1E2A52; --amber:#D98A34; --teal:#1F8A82; --teal-lt:#4EC4BC;
     --slate:#6E6A63; --slate-lt:#8C877D; --line:#DAD5C7; --line-dk:#23262C;
     --paper-on-ink:#EEEAE0; --slate-on-ink:#7E8894;
     --sans:'Public Sans',system-ui,-apple-system,sans-serif;
     --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-    --max:1180px;
+    --max:1120px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -24,148 +24,95 @@
     font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto;padding:0 36px}
-  h1,h2,h3,h4{font-weight:700;letter-spacing:-0.02em;line-height:1.05;text-wrap:balance}
-  .mono{font-family:var(--mono)}
-  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+  h1,h2,h3{font-weight:800;letter-spacing:-0.03em;line-height:1.03;text-wrap:balance}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;
     color:var(--slate);font-weight:500}
   section{border-top:1px solid var(--line)}
 
   /* nav */
-  header{position:sticky;top:0;z-index:60;background:rgba(243,240,232,.9);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+  header{position:sticky;top:0;z-index:60;background:rgba(243,240,232,.88);
+    backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
   .brand{font-weight:800;font-size:20px;letter-spacing:-0.04em;display:flex;align-items:center;gap:11px}
-  .brand .m{width:16px;height:16px;border:2px solid var(--indigo);position:relative}
+  .brand .m{width:15px;height:15px;border:2px solid var(--indigo);position:relative}
   .brand .m::after{content:"";position:absolute;inset:3px;background:var(--teal)}
-  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks{display:flex;gap:32px;align-items:center}
   .navlinks a{font-size:14.5px;color:var(--slate);font-weight:500}
   .navlinks a:hover{color:var(--ink)}
   .navlinks .cta{font-family:var(--mono);font-size:13px;color:var(--ink);
     border:1px solid var(--ink);padding:8px 16px}
   .navlinks .cta:hover{background:var(--ink);color:var(--paper)}
-  @media(max-width:820px){.navlinks a:not(.cta){display:none}}
+  @media(max-width:760px){.navlinks a:not(.cta){display:none}}
 
   /* hero */
   .hero{background:var(--ink);color:var(--paper-on-ink);border-top:none;position:relative;overflow:hidden}
   .hero::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px) 0 0/64px 64px,
-      linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px) 0 0/64px 64px;
-    mask-image:radial-gradient(130% 100% at 15% 0%,#000 25%,transparent 72%)}
-  .hero .wrap{position:relative;padding:96px 36px 84px}
-  .hero .kicker{color:var(--slate-on-ink)}
-  .hero h1{color:#fff;font-size:clamp(42px,6.8vw,80px);font-weight:800;max-width:15ch;margin-top:26px}
-  .hero .lede{margin-top:30px;max-width:60ch;font-size:19.5px;color:#C4C9D1;font-weight:400}
-  .console{margin-top:44px;border:1px solid var(--line-dk);background:#0E1013;max-width:640px;
+    background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px) 0 0/72px 72px,
+      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px) 0 0/72px 72px;
+    mask-image:radial-gradient(130% 100% at 12% 0%,#000 22%,transparent 70%)}
+  .hero .wrap{position:relative;padding:118px 36px 104px}
+  .hero .kicker{color:var(--teal-lt);letter-spacing:.06em;text-transform:none;font-size:15px}
+  .hero h1{color:#fff;font-size:clamp(46px,8vw,92px);font-weight:800;max-width:13ch;margin-top:20px}
+  .hero .lede{margin-top:32px;max-width:56ch;font-size:20px;color:#C4C9D1;font-weight:400}
+  .hero .acts{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--mono);font-size:14px;padding:13px 22px;font-weight:500}
+  .btn.primary{background:var(--teal);color:#04110F}.btn.primary:hover{background:var(--teal-lt)}
+  .btn.ghost{border:1px solid rgba(255,255,255,.28);color:#fff}.btn.ghost:hover{border-color:#fff}
+  .console{margin-top:56px;border:1px solid var(--line-dk);background:#0E1013;max-width:600px;
     font-family:var(--mono);font-size:13px}
   .console .top{padding:9px 14px;border-bottom:1px solid var(--line-dk);color:var(--slate-on-ink);
     font-size:11.5px;display:flex;align-items:center;gap:9px;letter-spacing:.04em}
   .live{width:7px;height:7px;border-radius:50%;background:var(--teal);
     box-shadow:0 0 0 0 rgba(31,138,130,.6);animation:pl 2.6s infinite}
   @keyframes pl{70%{box-shadow:0 0 0 8px rgba(31,138,130,0)}100%{box-shadow:0 0 0 0 rgba(31,138,130,0)}}
-  .console .body{padding:16px;line-height:1.95;color:#C4C9D1}
+  .console .body{padding:15px 16px;line-height:2;color:#C4C9D1}
   .console .body .d{color:var(--slate-on-ink)}
-  .console .body .g{color:#3FB27F}.console .body .a{color:var(--amber)}
-  .console .body .c{color:#37B3AB}.console .body .w{color:#fff}
-  .hero-links{margin-top:40px;display:flex;gap:26px;align-items:center;font-size:15px}
-  .hero-links a{color:#fff;font-weight:500;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
-  .hero-links a:hover{border-color:#fff}
-  .hero-links .arrow{color:var(--teal)}
+  .console .body .g{color:#3FB27F}.console .body .c{color:#37B3AB}.console .body .w{color:#fff}
 
-  /* charter */
-  .charter{background:var(--paper)}
-  .charter .wrap{padding:84px 36px;display:grid;grid-template-columns:1fr 1.15fr;gap:56px}
-  @media(max-width:860px){.charter .wrap{grid-template-columns:1fr;gap:32px}}
-  .charter h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;max-width:16ch}
-  .charter p{color:var(--slate);font-size:18px;max-width:52ch}
-  .charter p+p{margin-top:20px}
-  .charter .who{margin-top:28px;font-family:var(--mono);font-size:13px;color:var(--slate-lt);
-    letter-spacing:.02em;border-top:1px solid var(--line);padding-top:20px}
-  .charter .who b{color:var(--ink);font-weight:500}
+  /* sovereign statement */
+  .why{background:var(--paper)}
+  .why .wrap{padding:104px 36px}
+  .why h2{font-size:clamp(30px,4.6vw,52px);font-weight:800;max-width:18ch}
+  .why .cols{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:52px;max-width:960px}
+  @media(max-width:820px){.why .cols{grid-template-columns:1fr;gap:26px}}
+  .why p{color:var(--slate);font-size:18.5px}
+  .why p b{color:var(--ink);font-weight:600}
+  .why .line{margin-top:52px;font-family:var(--mono);font-size:14px;color:var(--slate-lt);
+    border-top:1px solid var(--line);padding-top:22px}
+  .why .line b{color:var(--teal);font-weight:500}
 
-  /* platform */
-  .platform{background:var(--indigo);color:#EBEEF6}
-  .platform .wrap{padding:82px 36px}
-  .platform .kicker{color:#9AA6C8}
-  .platform .row{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;margin-top:22px}
-  @media(max-width:860px){.platform .row{grid-template-columns:1fr;gap:32px}}
-  .platform h2{color:#fff;font-size:clamp(28px,3.8vw,44px);font-weight:800}
-  .platform h2 span{color:#8FB6B2}
-  .platform p{margin-top:20px;color:#B9C2DA;font-size:18px;max-width:46ch}
-  .stack{border:1px solid rgba(255,255,255,.14);font-family:var(--mono);font-size:13px}
-  .stack .layer{padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.1);
-    display:flex;justify-content:space-between;align-items:center;color:#C9D1E6}
-  .stack .layer:last-child{border-bottom:none}
-  .stack .layer.core{background:rgba(31,138,130,.16);color:#fff}
-  .stack .layer .t{color:#8593B8;font-size:11.5px}
-
-  /* products */
-  .products{background:var(--paper)}
-  .products .wrap{padding:84px 36px}
-  .sechead{max-width:60ch;margin-bottom:44px}
-  .sechead h2{font-size:clamp(28px,3.8vw,42px);font-weight:800}
-  .sechead p{margin-top:16px;color:var(--slate);font-size:18px;max-width:50ch}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-  @media(max-width:860px){.grid{grid-template-columns:1fr}}
-  .prod{background:#fff;border:1px solid var(--line);padding:30px 30px 26px;display:flex;flex-direction:column}
-  .prod.flagship{grid-column:1 / -1;background:var(--ink);color:var(--paper-on-ink);border-color:var(--ink)}
-  .prod .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
-  .prod .name{font-size:24px;font-weight:800;letter-spacing:-0.03em}
-  .prod .cat{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--slate)}
-  .prod.flagship .cat{color:var(--teal)}
-  .prod .metric{font-family:var(--mono);font-weight:700;font-size:clamp(26px,3vw,34px);
-    letter-spacing:-0.02em;line-height:1;margin-bottom:14px}
-  .prod .metric em{font-style:normal;color:var(--teal)}
-  .prod .metric small{font-size:13px;color:var(--slate);font-weight:400;letter-spacing:0;display:block;margin-top:8px}
-  .prod.flagship .metric small{color:var(--slate-on-ink)}
-  .prod p{font-size:15.5px;color:var(--slate)}
-  .prod.flagship p{color:#C4C9D1}
-  .prod .fl-body{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
-  @media(max-width:720px){.prod .fl-body{grid-template-columns:1fr;gap:26px}}
-  .compare{border:1px solid var(--line-dk);font-family:var(--mono);font-size:12.5px}
-  .compare .r{padding:12px 16px;border-bottom:1px solid var(--line-dk);color:#C4C9D1;line-height:1.5}
-  .compare .r:last-child{border-bottom:none}
-  .compare .r b{color:#fff;font-weight:500}
-  .compare .r.us{background:rgba(31,138,130,.14)}
-  .compare .r.us b{color:#4EC4BC}
-
-  /* tier ladder */
-  .tiers{background:var(--ink);color:var(--paper-on-ink)}
-  .tiers .wrap{padding:84px 36px}
-  .tiers .kicker{color:var(--slate-on-ink)}
-  .tiers h2{color:#fff;font-size:clamp(26px,3.6vw,40px);font-weight:800;max-width:20ch;margin-top:16px}
-  .tiers .sub{margin-top:18px;color:#B7BEC8;max-width:54ch;font-size:18px}
-  .ladder{margin-top:44px;display:grid;gap:2px}
-  .tier{display:grid;grid-template-columns:120px 1fr auto;gap:24px;align-items:center;
-    padding:20px 22px;background:#0F1114;border:1px solid var(--line-dk);border-left:3px solid var(--slate)}
-  .tier.t1{border-left-color:var(--slate-lt)}.tier.t2{border-left-color:var(--amber)}
-  .tier.t3{border-left-color:var(--teal)}
-  .tier .lv{font-family:var(--mono);font-weight:700;font-size:13px;letter-spacing:.06em;color:#fff}
-  .tier .lv span{display:block;color:var(--slate-on-ink);font-weight:400;font-size:11px;margin-top:3px;letter-spacing:.04em}
-  .tier .desc{font-size:15px;color:#C4C9D1}
-  .tier .state{font-family:var(--mono);font-size:11.5px;padding:5px 11px;border:1px solid var(--line-dk);
-    color:var(--slate-on-ink);white-space:nowrap;letter-spacing:.04em}
-  .tier.t2 .state{color:var(--amber);border-color:rgba(217,138,52,.4)}
-  .tier.t3 .state{color:var(--teal);border-color:rgba(31,138,130,.4)}
-  @media(max-width:720px){.tier{grid-template-columns:1fr;gap:8px}.tier .state{justify-self:start}}
+  /* what we build */
+  .build{background:var(--ink);color:var(--paper-on-ink)}
+  .build .wrap{padding:100px 36px}
+  .build .kicker{color:var(--slate-on-ink)}
+  .build h2{color:#fff;font-size:clamp(28px,4vw,44px);font-weight:800;margin-top:16px;max-width:20ch}
+  .grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:1px;
+    background:var(--line-dk);border:1px solid var(--line-dk)}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  .cell{background:var(--ink);padding:34px 32px}
+  .cell .h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .cell .name{font-size:23px;font-weight:800;letter-spacing:-0.03em;color:#fff}
+  .cell .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-lt)}
+  .cell p{font-size:15.5px;color:#AEB4BD;max-width:42ch}
+  .cell .focus{color:var(--slate-on-ink)}
 
   /* closing */
   .close{background:var(--paper-2)}
-  .close .wrap{padding:88px 36px;display:grid;grid-template-columns:1.4fr 1fr;gap:48px;align-items:end}
-  @media(max-width:860px){.close .wrap{grid-template-columns:1fr;gap:28px}}
-  .close h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;max-width:15ch}
-  .close p{margin-top:20px;color:var(--slate);max-width:44ch;font-size:18px}
+  .close .wrap{padding:104px 36px;display:grid;grid-template-columns:1.5fr 1fr;gap:52px;align-items:end}
+  @media(max-width:820px){.close .wrap{grid-template-columns:1fr;gap:30px}}
+  .close h2{font-size:clamp(32px,5vw,58px);font-weight:800;max-width:14ch}
+  .close p{margin-top:22px;color:var(--slate);max-width:44ch;font-size:18.5px}
   .close .act{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-  .close .act a{font-family:var(--mono);font-size:15px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
-  .close .act a:hover{color:var(--teal);border-color:var(--teal)}
-  .close .meta{margin-top:26px;font-family:var(--mono);font-size:12.5px;color:var(--slate);
-    border-top:1px solid var(--line);padding-top:18px;line-height:1.8}
+  .close .act a.mail{font-family:var(--mono);font-size:16px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
+  .close .act a.mail:hover{color:var(--teal);border-color:var(--teal)}
+  .close .meta{margin-top:24px;font-family:var(--mono);font-size:12.5px;color:var(--slate);
+    border-top:1px solid var(--line);padding-top:18px;line-height:1.9}
 
   footer{background:var(--ink);color:var(--slate-on-ink)}
-  footer .wrap{padding:38px 36px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;
+  footer .wrap{padding:34px 36px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;
     align-items:center;font-family:var(--mono);font-size:12.5px}
-  footer .brand{color:#fff}footer a{color:var(--slate-on-ink)}footer a:hover{color:#fff}
-  footer .fl{display:flex;gap:26px;flex-wrap:wrap}
+  footer .brand{color:#fff;font-size:16px}footer a{color:var(--slate-on-ink)}footer a:hover{color:#fff}
+  footer .fl{display:flex;gap:24px;flex-wrap:wrap}
 </style>
 </head>
 <body id="top">
@@ -174,11 +121,10 @@
   <div class="wrap nav">
     <a href="#top" class="brand"><span class="m"></span>Axentx</a>
     <nav class="navlinks">
-      <a href="#platform">Platform</a>
-      <a href="#products">Products</a>
-      <a href="#sentinel">Sentinel</a>
+      <a href="#why">Why sovereign</a>
+      <a href="#build">What we build</a>
       <a href="#company">Company</a>
-      <a href="mailto:hello@axentx.cloud" class="cta">Talk to us</a>
+      <a href="mailto:ashira@axentx.cloud" class="cta">Talk to us</a>
     </nav>
   </div>
 </header>
@@ -188,127 +134,59 @@
   <!-- HERO -->
   <div class="hero">
     <div class="wrap">
-      <span class="kicker">Axentx / Autonomous Infrastructure</span>
-      <h1>Infrastructure that answers back.</h1>
-      <p class="lede">Axentx builds agents that run cloud operations at national scale. Sentinel diagnoses a fault and acts inside the authority you set for it, then wakes an engineer only when the blast radius earns it.</p>
-      <div class="console">
-        <div class="top"><span class="live"></span>sentinel · run_forever · perimeter=internal</div>
-        <div class="body">
-          <div><span class="d">02:14:07</span> <span class="c">observe</span> payments-db latency z=3.1 <span class="d">// 214 series, local</span></div>
-          <div><span class="d">02:14:09</span> <span class="a">incident</span> INC-4471 opened · sev-2 · runbook matched</div>
-          <div><span class="d">02:14:41</span> <span class="c">act</span> tier-3 authority · raise pool 40 to 64 · applied</div>
-          <div><span class="d">02:15:02</span> <span class="g">resolved</span> burn=0.3x · MTTR 4m12s · <span class="w">no page sent</span></div>
-        </div>
+      <span class="kicker">Don't send your code to the model.</span>
+      <h1>Bring the model to your code.</h1>
+      <p class="lede">Surrogate is an engineering agent that runs a specialized model inside your own environment. Your code and your telemetry never leave your perimeter. When a task needs the frontier, it routes out through an egress gate you can audit.</p>
+      <div class="acts">
+        <a href="mailto:ashira@axentx.cloud?subject=Surrogate" class="btn primary">Talk to us</a>
+        <a href="#why" class="btn ghost">Why sovereign</a>
       </div>
-      <div class="hero-links">
-        <a href="#sentinel">See how Sentinel decides <span class="arrow">&rarr;</span></a>
-        <a href="#products">The full portfolio</a>
+      <div class="console">
+        <div class="top"><span class="live"></span>surrogate · local · egress = off</div>
+        <div class="body">
+          <div><span class="d">10:22:04</span> <span class="c">read</span> payments/gateway.go <span class="d">// local</span></div>
+          <div><span class="d">10:22:06</span> <span class="c">run</span> go test ./... <span class="g">passed</span> <span class="d">// local</span></div>
+          <div><span class="d">10:22:09</span> <span class="c">egress</span> off <span class="w">· 0 bytes left this machine</span></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- CHARTER -->
-  <section class="charter">
+  <!-- WHY SOVEREIGN -->
+  <section class="why" id="why">
     <div class="wrap">
-      <h2>We build the operating layer for infrastructure that cannot leave its own perimeter.</h2>
-      <div>
-        <p>Axentx is a deep-tech company from Thailand. We build autonomous agents for teams that run regulated or air-gapped systems, where the code and the telemetry an agent reads never reach a network the customer does not control.</p>
-        <p>Every product sits on one core and shares one idea: an agent should not just describe an operation. It should carry the authority to run it, bounded by rules the operator writes.</p>
-        <div class="who"><b>Who runs Axentx agents:</b> finance, government, healthcare, and critical infrastructure, at the scale where a wrong automated action is a headline.</div>
+      <span class="kicker">Why sovereign</span>
+      <h2>You should not have to trust us. You should be able to verify us.</h2>
+      <div class="cols">
+        <p>A company born this year cannot out-trust one you already know. So we removed the need. Unplug the network and Surrogate still reads your code, runs your tests, and fixes what breaks.</p>
+        <p>Nothing leaves the machine unless you route it out yourself, and the egress gate shows you every byte when you do. <b>Regulated and air-gapped teams cannot hand their source to a cloud they do not control.</b> Surrogate is built for exactly that constraint.</p>
       </div>
+      <div class="line">Inspectable, not a brand you take on faith. <b>Run it disconnected and watch.</b></div>
     </div>
   </section>
 
-  <!-- PLATFORM -->
-  <section class="platform" id="platform">
+  <!-- WHAT WE BUILD -->
+  <section class="build" id="build">
     <div class="wrap">
-      <span class="kicker">The platform</span>
-      <div class="row">
-        <div>
-          <h2>One core under every <span>agent.</span></h2>
-          <p>Arkship is the orchestration runtime beneath the whole portfolio. It carries the tool-use, the long-horizon memory, and the tiered authority model. A capability built once becomes something every agent inherits.</p>
-        </div>
-        <div class="stack">
-          <div class="layer"><span>Products</span><span class="t">Sentinel · Surrogate · Costinel · Vanguard</span></div>
-          <div class="layer"><span>Agent capabilities</span><span class="t">tool-use · memory · verification</span></div>
-          <div class="layer core"><span>Arkship</span><span class="t">orchestration core · authority tiers</span></div>
-          <div class="layer"><span>Your infrastructure</span><span class="t">on-prem · air-gapped · sovereign cloud</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRODUCTS -->
-  <section class="products" id="products">
-    <div class="wrap">
-      <div class="sechead">
-        <span class="kicker">The portfolio</span>
-        <h2>Named products. One architecture.</h2>
-        <p>Each Axentx product owns a domain of operations. Sentinel carries the most weight; the rest run on the same Arkship core.</p>
-      </div>
+      <span class="kicker">What we build</span>
+      <h2>One model. One agent. Yours to run.</h2>
       <div class="grid">
-
-        <div class="prod flagship" id="sentinel">
-          <div class="fl-body">
-            <div>
-              <div class="top"><span class="name" style="color:#fff">Sentinel</span><span class="cat">Cloud DevSecOps &amp; SRE agent</span></div>
-              <div class="metric"><em>4m12s</em><small>median time to resolve, before an engineer opens a runbook</small></div>
-              <p>Sentinel plugs into your cloud and runs operations the way an on-call engineer would, at full attention at 2 a.m. It reads the runbook, runs it, and reports what changed. What it is allowed to change is set per service and per action class, not by a single global switch.</p>
-            </div>
-            <div class="compare">
-              <div class="r"><b>AWS DevOps Agent</b> proposes a fix and waits for one approval, whatever broke.</div>
-              <div class="r"><b>OpsLevel</b> tells a human who owns the service and where the runbook lives.</div>
-              <div class="r"><b>Backstage</b> exposes actions an agent can call.</div>
-              <div class="r us"><b>Sentinel</b> knows which action is correct, runs it inside your authority, and escalates the rest.</div>
-            </div>
-          </div>
+        <div class="cell">
+          <div class="h"><span class="name">Surrogate One</span><span class="tag">The model</span></div>
+          <p>A DevSecOps and SRE model you host yourself. Specialized on the work your team actually does, and small enough to serve on your own GPU.</p>
         </div>
-
-        <div class="prod">
-          <div class="top"><span class="name">Surrogate</span><span class="cat">Sovereign engineering agent</span></div>
-          <div class="metric"><em>0</em> external calls<small>on the default path</small></div>
-          <p>A terminal and TUI engineering agent that reads code, runs commands, and reasons across the stack on a model you host. When a task needs the frontier, it routes out through an egress gate you can audit.</p>
+        <div class="cell">
+          <div class="h"><span class="name">Surrogate Code</span><span class="tag">The agent</span></div>
+          <p>A terminal and TUI engineering agent. It works across your stack on the model you host, and asks before anything leaves the box.</p>
         </div>
-
-        <div class="prod">
-          <div class="top"><span class="name">Costinel</span><span class="cat">FinOps · cost intelligence</span></div>
-          <div class="metric">sub-hourly<small>cloud spend, anomaly-flagged</small></div>
-          <p>Real-time AWS cost visibility with machine-learning anomaly detection and reinforcement-learning optimization. It tells your FinOps team what changed in the bill before the invoice does.</p>
+        <div class="cell">
+          <div class="h"><span class="name">Sentinel</span><span class="tag">Managed</span></div>
+          <p>The same agent as a service that watches your infrastructure around the clock and acts inside the authority you set, per service and per action.</p>
         </div>
-
-        <div class="prod">
-          <div class="top"><span class="name">Vanguard</span><span class="cat">Cloud security posture</span></div>
-          <div class="metric">continuous<small>posture &amp; risk, auto-remediated</small></div>
-          <p>Cloud security posture management with continuous risk assessment, automated remediation, and compliance mapping across large multi-account estates.</p>
+        <div class="cell">
+          <div class="h"><span class="name">Arkship</span><span class="tag">The core</span></div>
+          <p>The orchestration runtime every Axentx agent runs on, with a tiered authority model built once and inherited everywhere.</p>
         </div>
-
-        <div class="prod">
-          <div class="top"><span class="name">LeadFlow</span><span class="cat">Business ops · sales pipeline</span></div>
-          <div class="metric">PDPA-native<small>Thai / SEA-first CRM</small></div>
-          <p>A multi-tenant lead-generation and sales-pipeline platform built for Southeast Asia, with per-lead consent tracking and tenant isolation at the database layer.</p>
-        </div>
-
-        <div class="prod">
-          <div class="top"><span class="name">Workio</span><span class="cat">Business ops · workflow automation</span></div>
-          <div class="metric">automated<small>internal ops workflows</small></div>
-          <p>Workflow automation for the operational plumbing a growing company outgrows spreadsheets on. Built to run unattended and report by exception.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- TIER LADDER -->
-  <section class="tiers">
-    <div class="wrap">
-      <span class="kicker">The difference</span>
-      <h2>Autonomy is a dial, not a switch.</h2>
-      <p class="sub">Most incident agents give you one binary gate: approve, or the agent does nothing. Sentinel runs a tier system. You grant more authority to the patterns it has already proven, and keep a human on the ones it has not.</p>
-      <div class="ladder">
-        <div class="tier"><div class="lv">TIER 0<span>observe</span></div><div class="desc">Reads telemetry, forms a hypothesis, opens nothing. The floor for any service Sentinel has just met.</div><div class="state">read-only</div></div>
-        <div class="tier t1"><div class="lv">TIER 1<span>propose</span></div><div class="desc">Diagnoses the fault and drafts the exact change, then hands it to an engineer to run.</div><div class="state">human runs</div></div>
-        <div class="tier t2"><div class="lv">TIER 2<span>approve</span></div><div class="desc">Prepares the mitigation and executes it the moment an on-call engineer confirms. One tap, not a shell session.</div><div class="state">awaiting approval</div></div>
-        <div class="tier t3"><div class="lv">TIER 3<span>authority</span></div><div class="desc">Acts on its own for a fix it has already run safely, on a service you have cleared. Escalates anything outside the pattern.</div><div class="state">autonomous</div></div>
       </div>
     </div>
   </section>
@@ -318,13 +196,13 @@
     <div class="wrap">
       <div>
         <span class="kicker">The company</span>
-        <h2>Built in Thailand. Trusted at national scale.</h2>
-        <p>Axentx agents run inside your perimeter and report to your engineers. If you operate infrastructure that cannot be handed to someone else's cloud, we should talk.</p>
+        <h2>Built in Thailand. Made to run in your walls.</h2>
+        <p>If you operate infrastructure that cannot be handed to someone else's cloud, we should talk. Finance, government, healthcare, and critical infrastructure.</p>
       </div>
       <div class="act">
-        <a href="mailto:hello@axentx.cloud">hello@axentx.cloud</a>
-        <a href="mailto:hello@axentx.cloud?subject=Design%20partner">Become a design partner</a>
-        <div class="meta">Axentx Co. &middot; Bangkok, Thailand<br>NVIDIA Inception member<br>Deep-tech · autonomous operations</div>
+        <a href="mailto:ashira@axentx.cloud" class="mail">ashira@axentx.cloud</a>
+        <a href="mailto:ashira@axentx.cloud?subject=Design%20partner" class="mail">Become a design partner</a>
+        <div class="meta">Axentx &middot; Bangkok, Thailand<br>NVIDIA Inception member</div>
       </div>
     </div>
   </section>
@@ -333,12 +211,12 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="brand" style="font-weight:800;font-size:16px;letter-spacing:-0.03em">Axentx</a>
+    <a href="#top" class="brand">Axentx</a>
     <div class="fl">
-      <a href="#platform">Arkship</a>
-      <a href="#sentinel">Sentinel</a>
-      <a href="#products">Products</a>
-      <a href="mailto:hello@axentx.cloud">Contact</a>
+      <a href="#why">Why sovereign</a>
+      <a href="#build">Surrogate</a>
+      <a href="#company">Company</a>
+      <a href="mailto:ashira@axentx.cloud">Contact</a>
     </div>
     <span>&copy; 2026 Axentx &middot; Bangkok</span>
   </div>
