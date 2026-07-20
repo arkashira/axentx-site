@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security — Axentx</title>
+<meta name="description" content="How Surrogate keeps your code inside your perimeter: the egress gate, the deployment model, and an honest account of where compliance stands today.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brand"><svg class="mk" viewBox="0 0 300 300" aria-hidden="true"><path d="M89.9 68.7 L108.58 50 L191.42 50 L250 108.58 L250 191.42 L191.42 250 L108.58 250 L50 191.42 L50 108.58 L68.7 89.9" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="miter"/><rect x="71.29" y="71.29" width="16" height="16" transform="rotate(45 79.29 79.29)" fill="#1F8A82"/></svg>Axentx</a>
+    <nav class="navlinks">
+      <a href="product.html">Product</a>
+      <a href="security.html" class="on">Security</a>
+      <a href="company.html">Company</a>
+      <a href="mailto:ashira@axentx.cloud" class="cta">Talk to us</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="phero">
+    <div class="wrap">
+      <span class="kicker">Security</span>
+      <h1>You should not have to trust us. Here is how you verify us.</h1>
+      <p>A monitoring and coding agent sees your most sensitive stream, your source and your telemetry, all day. So the design starts from one rule: that stream stays on your side of the wall, and you can prove it.</p>
+    </div>
+  </div>
+
+  <section class="sec">
+    <div class="wrap">
+      <span class="kicker">The egress gate</span>
+      <h2>Nothing leaves the machine unless you route it out.</h2>
+      <p class="lead">By default Surrogate runs entirely on the model you host. The only way anything reaches the outside is through a gate you configure and audit. Unplug the network and the agent keeps working.</p>
+      <div class="diagram">
+        <svg viewBox="0 0 800 200" width="100%" role="img" aria-label="Diagram: the agent runs inside your perimeter; by default nothing leaves; a frontier call only happens through an audited gate to no-train providers">
+          <title>How the egress gate works</title>
+          <desc>Your code, the model, and the agent all run inside your perimeter. By default zero bytes leave. When you allow it, a request passes through an audited egress gate to no-train frontier providers, and it is logged.</desc>
+          <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5"/></marker></defs>
+          <g font-family="'JetBrains Mono', ui-monospace, monospace">
+            <rect x="14" y="30" width="256" height="150" rx="10" fill="none" stroke="#4EC4BC" stroke-width="1" stroke-dasharray="4 5"/>
+            <text x="28" y="54" fill="#7E8894" font-size="12">Your perimeter</text>
+            <text x="28" y="86" fill="#EEEAE0" font-size="13">your code</text>
+            <text x="28" y="114" fill="#EEEAE0" font-size="13">Surrogate One — the model</text>
+            <text x="28" y="142" fill="#EEEAE0" font-size="13">Surrogate Code — the agent</text>
+            <text x="28" y="168" fill="#7E8894" font-size="11.5">runs local, no call to us</text>
+            <line x1="270" y1="105" x2="330" y2="105" stroke="#5a6472" stroke-width="1.4" marker-end="url(#ar)"/>
+            <rect x="330" y="68" width="118" height="74" rx="8" fill="rgba(31,138,130,.16)" stroke="#1F8A82" stroke-width="1"/>
+            <text x="389" y="101" fill="#4EC4BC" font-size="13" text-anchor="middle">egress gate</text>
+            <text x="389" y="121" fill="#7E8894" font-size="11.5" text-anchor="middle">you audit it</text>
+            <text x="470" y="80" fill="#3FB27F" font-size="11.5">default: 0 bytes leave</text>
+            <line x1="448" y1="90" x2="566" y2="90" stroke="#3FB27F" stroke-width="1.4" marker-end="url(#ar)"/>
+            <line x1="448" y1="124" x2="566" y2="150" stroke="#5a6472" stroke-width="1.4" stroke-dasharray="4 4" marker-end="url(#ar)"/>
+            <text x="452" y="176" fill="#7E8894" font-size="11">you allow it, and it is logged</text>
+            <rect x="566" y="126" width="220" height="54" rx="8" fill="#141619" stroke="#2b2f36"/>
+            <text x="676" y="150" fill="#EEEAE0" font-size="13" text-anchor="middle">frontier model</text>
+            <text x="676" y="168" fill="#7E8894" font-size="11.5" text-anchor="middle">no-train providers only</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec alt">
+    <div class="wrap">
+      <span class="kicker">The details</span>
+      <h2>What that means in practice.</h2>
+      <div class="slist">
+        <div class="srow"><div class="pk">Runs in your environment</div><div><h3>On-prem, VPC, or air-gapped</h3><p>The weights run on your GPU, on hardware you control. There is no default path from your code to a network you do not own.</p></div></div>
+        <div class="srow"><div class="pk">The egress gate</div><div><h3>Auditable by design</h3><p>Every request that would leave the machine passes one gate. It reaches only providers that will not train on your data, and it records what left. You can turn it off and run fully offline.</p></div></div>
+        <div class="srow"><div class="pk">Managed deployment</div><div><h3>Deployed into your account</h3><p>When you want Sentinel run for you, it deploys into your own cloud account. The control plane sees health and metadata. Your code and its inference stay in your account.</p></div></div>
+        <div class="srow"><div class="pk">Compliance today</div><div><h3>No badges yet, and we will say so</h3><p>We do not hold SOC 2 or ISO certification yet. We are pre-seed and we would rather be honest than paint a badge row. Instead we offer a technical walkthrough and an architecture review, which is what a regulated buyer should want to see anyway.</p></div></div>
+        <div class="srow"><div class="pk">Who it is for</div><div><h3>Teams locked out of cloud agents</h3><p>Finance, government, healthcare, and critical infrastructure, where policy forbids source and telemetry from leaving the perimeter.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <div>
+        <span class="kicker">Verify us</span>
+        <h2>Bring us your environment and its rules.</h2>
+        <p>We will walk you through exactly what runs where, what the gate allows, and how to audit it. Run it disconnected and watch.</p>
+      </div>
+      <div class="act">
+        <a href="mailto:ashira@axentx.cloud?subject=Security%20review" class="mail">Request a technical walkthrough</a>
+        <a href="product.html" class="mail">See the products</a>
+        <div class="meta">Axentx &middot; Bangkok, Thailand<br>NVIDIA Inception member</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a href="index.html" class="brand"><svg class="mk" viewBox="0 0 300 300" aria-hidden="true"><path d="M89.9 68.7 L108.58 50 L191.42 50 L250 108.58 L250 191.42 L191.42 250 L108.58 250 L50 191.42 L50 108.58 L68.7 89.9" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="miter"/><rect x="71.29" y="71.29" width="16" height="16" transform="rotate(45 79.29 79.29)" fill="#1F8A82"/></svg>Axentx</a>
+      <div class="fmeta">Bangkok, Thailand<br>NVIDIA Inception member</div>
+    </div>
+    <div class="fcol"><h4>Product</h4><a href="product.html">Surrogate One</a><a href="product.html">Surrogate Code</a><a href="product.html">Sentinel</a><a href="product.html">Arkship</a></div>
+    <div class="fcol"><h4>Company</h4><a href="security.html">Security</a><a href="company.html">Company</a><a href="contact.html">Contact</a></div>
+    <div class="bottom">&copy; 2026 Axentx &middot; Bangkok</div>
+  </div>
+</footer>
+
+</body>
+</html>

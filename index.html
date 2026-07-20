@@ -5,125 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Axentx — sovereign AI for regulated engineering</title>
 <meta name="description" content="Axentx builds Surrogate, an engineering agent that runs a specialized model inside your own environment. Your code and telemetry never leave your perimeter. Built in Thailand.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#0A0B0D; --ink-2:#141619; --paper:#F3F0E8; --paper-2:#EAE6DB;
-    --indigo:#1E2A52; --amber:#D98A34; --teal:#1F8A82; --teal-lt:#4EC4BC;
-    --slate:#6E6A63; --slate-lt:#8C877D; --line:#DAD5C7; --line-dk:#23262C;
-    --paper-on-ink:#EEEAE0; --slate-on-ink:#7E8894;
-    --sans:'Public Sans',system-ui,-apple-system,sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
-    --max:1120px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);background:var(--paper);color:var(--ink);
-    font-size:17px;line-height:1.6;font-weight:400;-webkit-font-smoothing:antialiased}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 36px}
-  h1,h2,h3{font-weight:800;letter-spacing:-0.03em;line-height:1.03;text-wrap:balance}
-  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;
-    color:var(--slate);font-weight:500}
-  section{border-top:1px solid var(--line)}
-
-  /* nav */
-  header{position:sticky;top:0;z-index:60;background:rgba(243,240,232,.88);
-    backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-  .brand{font-weight:800;font-size:20px;letter-spacing:-0.04em;display:flex;align-items:center;gap:11px}
-  .brand .m{width:15px;height:15px;border:2px solid var(--indigo);position:relative}
-  .brand .m::after{content:"";position:absolute;inset:3px;background:var(--teal)}
-  .navlinks{display:flex;gap:32px;align-items:center}
-  .navlinks a{font-size:14.5px;color:var(--slate);font-weight:500}
-  .navlinks a:hover{color:var(--ink)}
-  .navlinks .cta{font-family:var(--mono);font-size:13px;color:var(--ink);
-    border:1px solid var(--ink);padding:8px 16px}
-  .navlinks .cta:hover{background:var(--ink);color:var(--paper)}
-  @media(max-width:760px){.navlinks a:not(.cta){display:none}}
-
-  /* hero */
-  .hero{background:var(--ink);color:var(--paper-on-ink);border-top:none;position:relative;overflow:hidden}
-  .hero::before{content:"";position:absolute;inset:0;
-    background:linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px) 0 0/72px 72px,
-      linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px) 0 0/72px 72px;
-    mask-image:radial-gradient(130% 100% at 12% 0%,#000 22%,transparent 70%)}
-  .hero .wrap{position:relative;padding:118px 36px 104px}
-  .hero .kicker{color:var(--teal-lt);letter-spacing:.06em;text-transform:none;font-size:15px}
-  .hero h1{color:#fff;font-size:clamp(46px,8vw,92px);font-weight:800;max-width:13ch;margin-top:20px}
-  .hero .lede{margin-top:32px;max-width:56ch;font-size:20px;color:#C4C9D1;font-weight:400}
-  .hero .acts{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-  .btn{font-family:var(--mono);font-size:14px;padding:13px 22px;font-weight:500}
-  .btn.primary{background:var(--teal);color:#04110F}.btn.primary:hover{background:var(--teal-lt)}
-  .btn.ghost{border:1px solid rgba(255,255,255,.28);color:#fff}.btn.ghost:hover{border-color:#fff}
-  .console{margin-top:56px;border:1px solid var(--line-dk);background:#0E1013;max-width:600px;
-    font-family:var(--mono);font-size:13px}
-  .console .top{padding:9px 14px;border-bottom:1px solid var(--line-dk);color:var(--slate-on-ink);
-    font-size:11.5px;display:flex;align-items:center;gap:9px;letter-spacing:.04em}
-  .live{width:7px;height:7px;border-radius:50%;background:var(--teal);
-    box-shadow:0 0 0 0 rgba(31,138,130,.6);animation:pl 2.6s infinite}
-  @keyframes pl{70%{box-shadow:0 0 0 8px rgba(31,138,130,0)}100%{box-shadow:0 0 0 0 rgba(31,138,130,0)}}
-  .console .body{padding:15px 16px;line-height:2;color:#C4C9D1}
-  .console .body .d{color:var(--slate-on-ink)}
-  .console .body .g{color:#3FB27F}.console .body .c{color:#37B3AB}.console .body .w{color:#fff}
-
-  /* sovereign statement */
-  .why{background:var(--paper)}
-  .why .wrap{padding:104px 36px}
-  .why h2{font-size:clamp(30px,4.6vw,52px);font-weight:800;max-width:18ch}
-  .why .cols{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:52px;max-width:960px}
-  @media(max-width:820px){.why .cols{grid-template-columns:1fr;gap:26px}}
-  .why p{color:var(--slate);font-size:18.5px}
-  .why p b{color:var(--ink);font-weight:600}
-  .why .line{margin-top:52px;font-family:var(--mono);font-size:14px;color:var(--slate-lt);
-    border-top:1px solid var(--line);padding-top:22px}
-  .why .line b{color:var(--teal);font-weight:500}
-
-  /* what we build */
-  .build{background:var(--ink);color:var(--paper-on-ink)}
-  .build .wrap{padding:100px 36px}
-  .build .kicker{color:var(--slate-on-ink)}
-  .build h2{color:#fff;font-size:clamp(28px,4vw,44px);font-weight:800;margin-top:16px;max-width:20ch}
-  .grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:1px;
-    background:var(--line-dk);border:1px solid var(--line-dk)}
-  @media(max-width:760px){.grid{grid-template-columns:1fr}}
-  .cell{background:var(--ink);padding:34px 32px}
-  .cell .h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px}
-  .cell .name{font-size:23px;font-weight:800;letter-spacing:-0.03em;color:#fff}
-  .cell .tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--teal-lt)}
-  .cell p{font-size:15.5px;color:#AEB4BD;max-width:42ch}
-  .cell .focus{color:var(--slate-on-ink)}
-
-  /* closing */
-  .close{background:var(--paper-2)}
-  .close .wrap{padding:104px 36px;display:grid;grid-template-columns:1.5fr 1fr;gap:52px;align-items:end}
-  @media(max-width:820px){.close .wrap{grid-template-columns:1fr;gap:30px}}
-  .close h2{font-size:clamp(32px,5vw,58px);font-weight:800;max-width:14ch}
-  .close p{margin-top:22px;color:var(--slate);max-width:44ch;font-size:18.5px}
-  .close .act{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
-  .close .act a.mail{font-family:var(--mono);font-size:16px;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:3px}
-  .close .act a.mail:hover{color:var(--teal);border-color:var(--teal)}
-  .close .meta{margin-top:24px;font-family:var(--mono);font-size:12.5px;color:var(--slate);
-    border-top:1px solid var(--line);padding-top:18px;line-height:1.9}
-
-  footer{background:var(--ink);color:var(--slate-on-ink)}
-  footer .wrap{padding:34px 36px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px;
-    align-items:center;font-family:var(--mono);font-size:12.5px}
-  footer .brand{color:#fff;font-size:16px}footer a{color:var(--slate-on-ink)}footer a:hover{color:#fff}
-  footer .fl{display:flex;gap:24px;flex-wrap:wrap}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body id="top">
 
 <header>
   <div class="wrap nav">
-    <a href="#top" class="brand"><span class="m"></span>Axentx</a>
+    <a href="index.html" class="brand"><svg class="mk" viewBox="0 0 300 300" aria-hidden="true"><path d="M89.9 68.7 L108.58 50 L191.42 50 L250 108.58 L250 191.42 L191.42 250 L108.58 250 L50 191.42 L50 108.58 L68.7 89.9" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="miter"/><rect x="71.29" y="71.29" width="16" height="16" transform="rotate(45 79.29 79.29)" fill="#1F8A82"/></svg>Axentx</a>
     <nav class="navlinks">
-      <a href="#why">Why sovereign</a>
-      <a href="#build">What we build</a>
-      <a href="#company">Company</a>
+      <a href="product.html">Product</a>
+      <a href="security.html">Security</a>
+      <a href="company.html">Company</a>
       <a href="mailto:ashira@axentx.cloud" class="cta">Talk to us</a>
     </nav>
   </div>
@@ -131,7 +27,6 @@
 
 <main>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="wrap">
       <span class="kicker">Don't send your code to the model.</span>
@@ -139,7 +34,7 @@
       <p class="lede">Surrogate is an engineering agent that runs a specialized model inside your own environment. Your code and your telemetry never leave your perimeter. When a task needs the frontier, it routes out through an egress gate you can audit.</p>
       <div class="acts">
         <a href="mailto:ashira@axentx.cloud?subject=Surrogate" class="btn primary">Talk to us</a>
-        <a href="#why" class="btn ghost">Why sovereign</a>
+        <a href="security.html" class="btn ghost">Why sovereign</a>
       </div>
       <div class="console">
         <div class="top"><span class="live"></span>surrogate · local · egress = off</div>
@@ -152,7 +47,6 @@
     </div>
   </div>
 
-  <!-- WHY SOVEREIGN -->
   <section class="why" id="why">
     <div class="wrap">
       <span class="kicker">Why sovereign</span>
@@ -161,37 +55,24 @@
         <p>A company born this year cannot out-trust one you already know. So we removed the need. Unplug the network and Surrogate still reads your code, runs your tests, and fixes what breaks.</p>
         <p>Nothing leaves the machine unless you route it out yourself, and the egress gate shows you every byte when you do. <b>Regulated and air-gapped teams cannot hand their source to a cloud they do not control.</b> Surrogate is built for exactly that constraint.</p>
       </div>
-      <div class="line">Inspectable, not a brand you take on faith. <b>Run it disconnected and watch.</b></div>
+      <div class="line">Inspectable, not a brand you take on faith. <b>Run it disconnected and watch.</b> <a href="security.html" style="color:var(--teal);border-bottom:1px solid var(--teal)">See how the egress gate works</a></div>
     </div>
   </section>
 
-  <!-- WHAT WE BUILD -->
   <section class="build" id="build">
     <div class="wrap">
       <span class="kicker">What we build</span>
       <h2>One model. One agent. Yours to run.</h2>
       <div class="grid">
-        <div class="cell">
-          <div class="h"><span class="name">Surrogate One</span><span class="tag">The model</span></div>
-          <p>A DevSecOps and SRE model you host yourself. Specialized on the work your team actually does, and small enough to serve on your own GPU.</p>
-        </div>
-        <div class="cell">
-          <div class="h"><span class="name">Surrogate Code</span><span class="tag">The agent</span></div>
-          <p>A terminal and TUI engineering agent. It works across your stack on the model you host, and asks before anything leaves the box.</p>
-        </div>
-        <div class="cell">
-          <div class="h"><span class="name">Sentinel</span><span class="tag">Managed</span></div>
-          <p>The same agent as a service that watches your infrastructure around the clock and acts inside the authority you set, per service and per action.</p>
-        </div>
-        <div class="cell">
-          <div class="h"><span class="name">Arkship</span><span class="tag">The core</span></div>
-          <p>The orchestration runtime every Axentx agent runs on, with a tiered authority model built once and inherited everywhere.</p>
-        </div>
+        <div class="cell"><div class="h"><span class="name">Surrogate One</span><span class="tag">The model</span></div><p>A DevSecOps and SRE model you host yourself. Specialized on the work your team actually does, and small enough to serve on your own GPU.</p></div>
+        <div class="cell"><div class="h"><span class="name">Surrogate Code</span><span class="tag">The agent</span></div><p>A terminal and TUI engineering agent. It works across your stack on the model you host, and asks before anything leaves the box.</p></div>
+        <div class="cell"><div class="h"><span class="name">Sentinel</span><span class="tag">Managed</span></div><p>The same agent as a service that watches your infrastructure around the clock and acts inside the authority you set, per service and per action.</p></div>
+        <div class="cell"><div class="h"><span class="name">Arkship</span><span class="tag">The core</span></div><p>The orchestration runtime every Axentx agent runs on, with a tiered authority model built once and inherited everywhere.</p></div>
       </div>
+      <div style="margin-top:34px"><a href="product.html" class="btn ghost">See the products</a></div>
     </div>
   </section>
 
-  <!-- CLOSING -->
   <section class="close" id="company">
     <div class="wrap">
       <div>
@@ -201,7 +82,7 @@
       </div>
       <div class="act">
         <a href="mailto:ashira@axentx.cloud" class="mail">ashira@axentx.cloud</a>
-        <a href="mailto:ashira@axentx.cloud?subject=Design%20partner" class="mail">Become a design partner</a>
+        <a href="contact.html" class="mail">All the ways to reach us</a>
         <div class="meta">Axentx &middot; Bangkok, Thailand<br>NVIDIA Inception member</div>
       </div>
     </div>
@@ -211,14 +92,24 @@
 
 <footer>
   <div class="wrap">
-    <a href="#top" class="brand">Axentx</a>
-    <div class="fl">
-      <a href="#why">Why sovereign</a>
-      <a href="#build">Surrogate</a>
-      <a href="#company">Company</a>
-      <a href="mailto:ashira@axentx.cloud">Contact</a>
+    <div>
+      <a href="index.html" class="brand"><svg class="mk" viewBox="0 0 300 300" aria-hidden="true"><path d="M89.9 68.7 L108.58 50 L191.42 50 L250 108.58 L250 191.42 L191.42 250 L108.58 250 L50 191.42 L50 108.58 L68.7 89.9" fill="none" stroke="currentColor" stroke-width="20" stroke-linejoin="miter"/><rect x="71.29" y="71.29" width="16" height="16" transform="rotate(45 79.29 79.29)" fill="#1F8A82"/></svg>Axentx</a>
+      <div class="fmeta">Bangkok, Thailand<br>NVIDIA Inception member</div>
     </div>
-    <span>&copy; 2026 Axentx &middot; Bangkok</span>
+    <div class="fcol">
+      <h4>Product</h4>
+      <a href="product.html">Surrogate One</a>
+      <a href="product.html">Surrogate Code</a>
+      <a href="product.html">Sentinel</a>
+      <a href="product.html">Arkship</a>
+    </div>
+    <div class="fcol">
+      <h4>Company</h4>
+      <a href="security.html">Security</a>
+      <a href="company.html">Company</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="bottom">&copy; 2026 Axentx &middot; Bangkok</div>
   </div>
 </footer>
 
